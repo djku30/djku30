@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Builder - Crea Siti e App</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#3ECF8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="#3ECF8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#3ECF8E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h1>Chatbot Builder</h1>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Progetti</div>
+                    <a href="#" class="nav-item active" data-type="chat">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        <span>Nuova Chat</span>
+                    </a>
+                    <a href="#" class="nav-item" data-type="website">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3h18v18H3z"/>
+                            <path d="M3 9h18"/>
+                            <path d="M9 21V9"/>
+                        </svg>
+                        <span>Sito Web</span>
+                    </a>
+                    <a href="#" class="nav-item" data-type="windows">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        <span>App Windows</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Esempi</div>
+                    <a href="#" class="nav-item" onclick="loadExample('portfolio')">
+                        <span class="example-dot"></span>
+                        <span>Portfolio</span>
+                    </a>
+                    <a href="#" class="nav-item" onclick="loadExample('calculator')">
+                        <span class="example-dot"></span>
+                        <span>Calcolatrice</span>
+                    </a>
+                    <a href="#" class="nav-item" onclick="loadExample('blog')">
+                        <span class="example-dot"></span>
+                        <span>Blog</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">CB</div>
+                    <div class="user-details">
+                        <div class="user-name">Chatbot Builder</div>
+                        <div class="user-status">v1.0.0</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h2 id="page-title">Nuova Chat</h2>
+                    <div class="breadcrumb">
+                        <span>Home</span>
+                        <span class="breadcrumb-separator">/</span>
+                        <span id="breadcrumb-current">Chat</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="btn-icon" title="Impostazioni" onclick="openSettings()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6M1 12h6m6 0h6"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Container -->
+            <div class="chat-container" id="chat-view">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#3ECF8E" stroke-width="2">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                                <path d="M2 17L12 22L22 17"/>
+                                <path d="M2 12L12 17L22 12"/>
+                            </svg>
+                        </div>
+                        <h3>Benvenuto in Chatbot Builder</h3>
+                        <p>Crea siti web e applicazioni Windows con l'intelligenza artificiale</p>
+                        <div class="quick-actions">
+                            <button class="quick-action-btn" onclick="quickStart('website')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3h18v18H3z"/>
+                                    <path d="M3 9h18"/>
+                                </svg>
+                                Crea Sito Web
+                            </button>
+                            <button class="quick-action-btn" onclick="quickStart('windows')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                </svg>
+                                Crea App Windows
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <textarea id="chat-input" placeholder="Descrivi cosa vuoi creare..." rows="1"></textarea>
+                        <button id="send-btn" class="send-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="input-hints">
+                        Premi <kbd>Enter</kbd> per inviare, <kbd>Shift + Enter</kbd> per andare a capo
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Container (nascosto inizialmente) -->
+            <div class="form-container hidden" id="form-view">
+                <div class="form-content">
+                    <!-- Il form verrà popolato dinamicamente -->
+                </div>
+            </div>
+
+            <!-- Code Preview Container -->
+            <div class="code-preview-container hidden" id="code-view">
+                <div class="code-preview-header">
+                    <div class="tabs" id="code-tabs"></div>
+                    <button class="btn-secondary" onclick="downloadCode()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                    </button>
+                </div>
+                <div class="code-preview-content">
+                    <pre><code id="code-content"></code></pre>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dialog Impostazioni (HTML5) -->
+    <dialog id="settings-dialog" class="settings-dialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <div class="dialog-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6M1 12h6m6 0h6"/>
+                    </svg>
+                    <h3>Impostazioni API</h3>
+                </div>
+                <button class="dialog-close-btn" onclick="closeSettings()" aria-label="Chiudi">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dialog-body">
+                <div class="info-banner">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="16" x2="12" y2="12"/>
+                        <line x1="12" y1="8" x2="12.01" y2="8"/>
+                    </svg>
+                    <p>Configura le tue chiavi API per integrare servizi esterni. Il chatbot usa la generazione locale per default.</p>
+                </div>
+
+                <form id="settings-form">
+                    <div class="form-section">
+                        <h4 class="section-title">Modalità di Generazione</h4>
+                        <div class="toggle-group">
+                            <label class="toggle-label" for="use_local_generation">
+                                <div class="toggle-info">
+                                    <span class="toggle-title">Generazione Locale</span>
+                                    <small>Usa template integrati senza API esterne</small>
+                                </div>
+                                <input type="checkbox" id="use_local_generation" class="toggle-checkbox" checked>
+                                <span class="toggle-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h4 class="section-title">API Esterne (Opzionale)</h4>
+                        <div class="form-group">
+                            <label for="openai_api_key">
+                                <span class="label-icon">🤖</span>
+                                OpenAI API Key
+                            </label>
+                            <input type="password" id="openai_api_key" placeholder="sk-..." class="form-input">
+                            <small>Per usare GPT-4 nella generazione del codice</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="anthropic_api_key">
+                                <span class="label-icon">🧠</span>
+                                Anthropic API Key
+                            </label>
+                            <input type="password" id="anthropic_api_key" placeholder="sk-ant-..." class="form-input">
+                            <small>Per usare Claude nella generazione del codice</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custom_api_endpoint">
+                                <span class="label-icon">🔗</span>
+                                Custom API Endpoint
+                            </label>
+                            <input type="text" id="custom_api_endpoint" placeholder="https://..." class="form-input">
+                            <small>Endpoint personalizzato per API custom</small>
+                        </div>
+                    </div>
+
+                    <div class="dialog-actions">
+                        <button type="button" class="btn-secondary btn-animated" onclick="closeSettings()">
+                            <span>Annulla</span>
+                        </button>
+                        <button type="submit" class="btn-primary btn-animated">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Salva Impostazioni</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Dialog Conferma (riutilizzabile) -->
+    <dialog id="confirm-dialog" class="confirm-dialog">
+        <div class="dialog-content">
+            <div class="dialog-header">
+                <h3 id="confirm-title">Conferma</h3>
+            </div>
+            <div class="dialog-body">
+                <p id="confirm-message"></p>
+            </div>
+            <div class="dialog-actions">
+                <button class="btn-secondary btn-animated" onclick="closeConfirmDialog(false)">Annulla</button>
+                <button class="btn-primary btn-animated" onclick="closeConfirmDialog(true)">Conferma</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
