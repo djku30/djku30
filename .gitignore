@@ -49,3 +49,4 @@ instance/
 .pytest_cache/
 .coverage
 htmlcov/
+*.tar.gz
