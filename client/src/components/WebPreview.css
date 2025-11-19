@@ -1,0 +1,36 @@
+.webpreview {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.webpreview-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: white;
+}
+
+.webpreview-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+}
+
+.webpreview-empty .empty-state {
+  text-align: center;
+  color: #858585;
+}
+
+.webpreview-empty h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #d4d4d4;
+}
+
+.webpreview-empty p {
+  font-size: 14px;
+}

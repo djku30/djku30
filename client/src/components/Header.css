@@ -62,3 +62,30 @@
   color: #858585;
   cursor: not-allowed;
 }
+
+.auto-run-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  background-color: #3e3e3e;
+  color: #858585;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auto-run-button:hover {
+  background-color: #4e4e4e;
+  color: #d4d4d4;
+}
+
+.auto-run-button.active {
+  background-color: #f9a825;
+  color: #1e1e1e;
+}
+
+.auto-run-button.active:hover {
+  background-color: #fbc02d;
+}
