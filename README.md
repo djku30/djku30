@@ -53,6 +53,11 @@ npm install
 cd ..
 ```
 
+4. Configura le variabili d'ambiente del client:
+```bash
+cp client/.env.example client/.env
+```
+
 ## Utilizzo
 
 ### Modalità Sviluppo
