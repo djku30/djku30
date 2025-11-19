@@ -1,0 +1,14 @@
+.terminal {
+  height: 100%;
+  width: 100%;
+  padding: 8px;
+  background-color: #1e1e1e;
+}
+
+.terminal .xterm {
+  height: 100%;
+}
+
+.terminal .xterm-viewport {
+  overflow-y: auto !important;
+}

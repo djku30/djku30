@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #3e3e3e;
+  padding: 0 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  color: #007acc;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.current-file {
+  font-size: 13px;
+  color: #858585;
+}
+
+.header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.run-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #0e7a0d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.run-button:hover:not(:disabled) {
+  background-color: #0f8b0e;
+}
+
+.run-button:disabled {
+  background-color: #3e3e3e;
+  color: #858585;
+  cursor: not-allowed;
+}
