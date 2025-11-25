@@ -158,6 +158,41 @@ Il terminal usa WebSocket per la comunicazione in tempo reale:
 - Usa HTTPS per le connessioni WebSocket
 - Valida e sanitizza tutti gli input
 
+## UniMaker Project Setup
+
+This section provides instructions for setting up and building the UniMaker project using GameMaker.
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/ninstar/UniMaker.git
+```
+
+### Download GameMaker
+
+The version depends on the type of project you want to import:
+
+- **Studio 1.4.9999** for `.gmx` projects
+- **Studio 2.2 or later** for `.yyp` projects
+
+> **Note:** You can convert a `.gmx` project into a `.yyp`, but it would still require manual work to fix any potential incompatibility issues.
+
+### Setup Instructions
+
+1. **Extract the .7z file** containing the version you want to use.
+2. **Open the project file** (`.gmx` or `.yyp`).
+
+### Import Audio Files (Optional)
+
+This step is optional for stable releases:
+
+1. Download a compiled binary of the game.
+2. Go to **Included Files** and import all `.ogg` files from the `UniMaker` directory (the directory where the binary is stored).
+
+### Create Executable
+
+1. Go to **File** ➜ **Create Executable**.
+
 ## Licenza
 
 MIT
