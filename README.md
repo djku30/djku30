@@ -37,7 +37,7 @@ Un IDE moderno simile a Replit costruito con React e Node.js, con editor di codi
 
 1. Clona il repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/djku30/djku30.git
 cd djku30
 ```
 
